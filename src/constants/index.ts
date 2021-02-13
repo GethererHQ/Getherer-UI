@@ -6,7 +6,11 @@ import { fortmatic, injected, portis, walletconnect, walletlink } from '../conne
 export const ROUTER_ADDRESS = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
 
 export const GethererSwapper: { [chainId in ChainId]: string } = {
-  [ChainId.RINKEBY]: '0x523c65458B0E0Ab320f9524b9bEDDa373521FeE0'
+  [ChainId.MAINNET]: '0x523c65458B0E0Ab320f9524b9bEDDa373521FeE0',
+  [ChainId.RINKEBY]: '0x523c65458B0E0Ab320f9524b9bEDDa373521FeE0',
+  [ChainId.ROPSTEN]: '0x523c65458B0E0Ab320f9524b9bEDDa373521FeE0',
+  [ChainId.GÖRLI]: '0x523c65458B0E0Ab320f9524b9bEDDa373521FeE0',
+  [ChainId.KOVAN]: '0x523c65458B0E0Ab320f9524b9bEDDa373521FeE0'
 }
 
 export const ETH_ADDRESS = '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE'
