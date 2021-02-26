@@ -17,6 +17,8 @@ export const ETH_ADDRESS = '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE'
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
+export const GETHERER_ADDRESS = '0x523c65458B0E0Ab320f9524b9bEDDa373521FeE0'
+
 export { PRELOADED_PROPOSALS } from './proposals'
 
 // a list of tokens by chain
