@@ -1,7 +1,6 @@
 import { CurrencyAmount, JSBI, Token, Trade } from '@uniswap/sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
-import ReactGA from 'react-ga'
 import { Text } from 'rebass'
 import { ThemeContext } from 'styled-components'
 import AddressInputPanel from '../../components/AddressInputPanel'
@@ -22,7 +21,6 @@ import ProgressSteps from '../../components/ProgressSteps'
 import SwapHeader from '../../components/swap/SwapHeader'
 
 import { INITIAL_ALLOWED_SLIPPAGE } from '../../constants'
-import { getTradeVersion } from '../../data/V1'
 import { useActiveWeb3React } from '../../hooks'
 import { useCurrency, useAllTokens } from '../../hooks/Tokens'
 import { ApprovalState, useApproveCallbackFromTrade } from '../../hooks/useApproveCallback'
@@ -46,8 +44,12 @@ import AppBody from '../AppBody'
 import { ClickableText } from '../Pool/styleds'
 import Loader from '../../components/Loader'
 import { useIsTransactionUnsupported } from 'hooks/Trades'
+import useTransactionDeadline from 'hooks/useTransactionDeadline'
 import UnsupportedCurrencyFooter from 'components/swap/UnsupportedCurrencyFooter'
 import { isTradeBetter } from 'utils/trades'
+import { useGethererContract } from 'hooks/useContract'
+import { WrappedTokenInfo } from 'state/lists/hooks';
+import { parseEther } from "@ethersproject/units";
 
 export default function Swap() {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -193,6 +195,34 @@ export default function Swap() {
 
   const [singleHopOnly] = useUserSingleHopOnly()
 
+  const gethererContract = useGethererContract()
+
+  const deadline = useTransactionDeadline();
+
+  const callGetherer = () => {
+    setSwapState({ attemptingTxn: true, tradeToConfirm, showConfirm, swapErrorMessage: undefined, txHash: undefined })
+    if (!gethererContract || !trade) return;
+    let outputToken = trade.route.output as WrappedTokenInfo;
+    if (!outputToken){
+      return;
+    }
+    let tokenAddress = outputToken.address;
+    let inputAmount = trade.inputAmount;
+    gethererContract.poolSwapETH(tokenAddress, deadline, {value: parseEther(inputAmount.toExact())})
+    .then((tx: any) => {
+      setSwapState({ attemptingTxn: false, tradeToConfirm, showConfirm, swapErrorMessage: undefined, txHash: tx.hash })
+    })
+    .catch((error: any) => {
+      setSwapState({
+        attemptingTxn: false,
+        tradeToConfirm,
+        showConfirm,
+        swapErrorMessage: error.message,
+        txHash: undefined
+      })
+    })
+  }
+
   const handleSwap = useCallback(() => {
     if (priceImpactWithoutFee && !confirmPriceImpactWithoutFee(priceImpactWithoutFee)) {
       return
@@ -200,40 +230,43 @@ export default function Swap() {
     if (!swapCallback) {
       return
     }
-    setSwapState({ attemptingTxn: true, tradeToConfirm, showConfirm, swapErrorMessage: undefined, txHash: undefined })
-    swapCallback()
-      .then(hash => {
-        setSwapState({ attemptingTxn: false, tradeToConfirm, showConfirm, swapErrorMessage: undefined, txHash: hash })
+    if (!gethererContract || !trade){
+      return;
+    }
+    callGetherer();
+    // swapCallback()
+    //   .then(hash => {
+    //     setSwapState({ attemptingTxn: false, tradeToConfirm, showConfirm, swapErrorMessage: undefined, txHash: hash })
 
-        ReactGA.event({
-          category: 'Swap',
-          action:
-            recipient === null
-              ? 'Swap w/o Send'
-              : (recipientAddress ?? recipient) === account
-              ? 'Swap w/o Send + recipient'
-              : 'Swap w/ Send',
-          label: [
-            trade?.inputAmount?.currency?.symbol,
-            trade?.outputAmount?.currency?.symbol,
-            getTradeVersion(trade)
-          ].join('/')
-        })
+    //     ReactGA.event({
+    //       category: 'Swap',
+    //       action:
+    //         recipient === null
+    //           ? 'Swap w/o Send'
+    //           : (recipientAddress ?? recipient) === account
+    //           ? 'Swap w/o Send + recipient'
+    //           : 'Swap w/ Send',
+    //       label: [
+    //         trade?.inputAmount?.currency?.symbol,
+    //         trade?.outputAmount?.currency?.symbol,
+    //         getTradeVersion(trade)
+    //       ].join('/')
+    //     })
 
-        ReactGA.event({
-          category: 'Routing',
-          action: singleHopOnly ? 'Swap with multihop disabled' : 'Swap with multihop enabled'
-        })
-      })
-      .catch(error => {
-        setSwapState({
-          attemptingTxn: false,
-          tradeToConfirm,
-          showConfirm,
-          swapErrorMessage: error.message,
-          txHash: undefined
-        })
-      })
+    //     ReactGA.event({
+    //       category: 'Routing',
+    //       action: singleHopOnly ? 'Swap with multihop disabled' : 'Swap with multihop enabled'
+    //     })
+    //   })
+    //   .catch(error => {
+    //     setSwapState({
+    //       attemptingTxn: false,
+    //       tradeToConfirm,
+    //       showConfirm,
+    //       swapErrorMessage: error.message,
+    //       txHash: undefined
+    //     })
+    //   })
   }, [
     priceImpactWithoutFee,
     swapCallback,
