@@ -40,7 +40,7 @@ function useContract(address: string | undefined, ABI: any, withSignerIfPossible
 }
 
 export function useGethererContract(): Contract | null {
-  return useContract(GETHERER_ADDRESS, GETHERER_ABI, false);
+  return useContract(GETHERER_ADDRESS, GETHERER_ABI, true);
 }
 
 export function useV1FactoryContract(): Contract | null {
