@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Getherer-UI/precache-manifest.fd8ce299ef455b9720f6e474e0619c92.js"
+  "/Getherer-UI/precache-manifest.b987f5d2726a895e080bfc0394d6e69b.js"
 );
 
 self.addEventListener('message', (event) => {

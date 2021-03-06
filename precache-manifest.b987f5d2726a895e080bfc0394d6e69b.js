@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "40176f3b8f531bfe965dc03fb3909030",
+    "revision": "8189c362792bb9ab9debcf5199699d14",
     "url": "/Getherer-UI/index.html"
   },
   {
@@ -52,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Getherer-UI/static/js/9.8875c134.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "203d3e70233abdf227a5",
-    "url": "/Getherer-UI/static/js/main.b4a2d3d9.chunk.js"
+    "revision": "be0345db725e18a914db",
+    "url": "/Getherer-UI/static/js/main.a28e78ce.chunk.js"
   },
   {
     "revision": "152a7b482af91b512fe8",
