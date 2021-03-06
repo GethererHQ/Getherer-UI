@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f9a314a5dfda889bd918ead18a7f820a",
+    "revision": "40176f3b8f531bfe965dc03fb3909030",
     "url": "/Getherer-UI/index.html"
   },
   {
@@ -52,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Getherer-UI/static/js/9.8875c134.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3e0100587c8b1a194618",
-    "url": "/Getherer-UI/static/js/main.5baea383.chunk.js"
+    "revision": "203d3e70233abdf227a5",
+    "url": "/Getherer-UI/static/js/main.b4a2d3d9.chunk.js"
   },
   {
     "revision": "152a7b482af91b512fe8",
@@ -268,8 +268,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Getherer-UI/static/media/link.50c67f3c.svg"
   },
   {
-    "revision": "742edb097a191c4a04a0d63d935b117d",
-    "url": "/Getherer-UI/static/media/logo.742edb09.svg"
+    "revision": "bb4747203c31c0b03b2cc80e58058ee2",
+    "url": "/Getherer-UI/static/media/logo.bb474720.svg"
   },
   {
     "revision": "bc1aa1833999ad0f7fc573453537453c",

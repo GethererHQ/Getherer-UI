@@ -4,8 +4,8 @@
     "static/js/0.146d8c74.chunk.js.map": "/Getherer-UI/static/js/0.146d8c74.chunk.js.map",
     "static/js/1.be96c6b1.chunk.js": "/Getherer-UI/static/js/1.be96c6b1.chunk.js",
     "static/js/1.be96c6b1.chunk.js.map": "/Getherer-UI/static/js/1.be96c6b1.chunk.js.map",
-    "main.js": "/Getherer-UI/static/js/main.5baea383.chunk.js",
-    "main.js.map": "/Getherer-UI/static/js/main.5baea383.chunk.js.map",
+    "main.js": "/Getherer-UI/static/js/main.b4a2d3d9.chunk.js",
+    "main.js.map": "/Getherer-UI/static/js/main.b4a2d3d9.chunk.js.map",
     "runtime-main.js": "/Getherer-UI/static/js/runtime-main.566d2108.js",
     "runtime-main.js.map": "/Getherer-UI/static/js/runtime-main.566d2108.js.map",
     "static/css/4.806c147b.chunk.css": "/Getherer-UI/static/css/4.806c147b.chunk.css",
@@ -22,7 +22,7 @@
     "static/js/9.8875c134.chunk.js": "/Getherer-UI/static/js/9.8875c134.chunk.js",
     "static/js/9.8875c134.chunk.js.map": "/Getherer-UI/static/js/9.8875c134.chunk.js.map",
     "index.html": "/Getherer-UI/index.html",
-    "precache-manifest.91ed0d6f200d181e5674439f4fdd352e.js": "/Getherer-UI/precache-manifest.91ed0d6f200d181e5674439f4fdd352e.js",
+    "precache-manifest.fd8ce299ef455b9720f6e474e0619c92.js": "/Getherer-UI/precache-manifest.fd8ce299ef455b9720f6e474e0619c92.js",
     "service-worker.js": "/Getherer-UI/service-worker.js",
     "static/css/4.806c147b.chunk.css.map": "/Getherer-UI/static/css/4.806c147b.chunk.css.map",
     "static/js/4.3edf7fd4.chunk.js.LICENSE.txt": "/Getherer-UI/static/js/4.3edf7fd4.chunk.js.LICENSE.txt",
@@ -42,7 +42,7 @@
     "static/media/dropdown.svg": "/Getherer-UI/static/media/dropdown.7d32d2fa.svg",
     "static/media/dropup-blue.svg": "/Getherer-UI/static/media/dropup-blue.b96d70e1.svg",
     "static/media/link.svg": "/Getherer-UI/static/media/link.50c67f3c.svg",
-    "static/media/logo.svg": "/Getherer-UI/static/media/logo.742edb09.svg",
+    "static/media/logo.svg": "/Getherer-UI/static/media/logo.bb474720.svg",
     "static/media/logo_white.svg": "/Getherer-UI/static/media/logo_white.bc1aa183.svg",
     "static/media/magnifying-glass.svg": "/Getherer-UI/static/media/magnifying-glass.67440097.svg",
     "static/media/menu.svg": "/Getherer-UI/static/media/menu.4f2c4440.svg",
@@ -63,6 +63,6 @@
     "static/js/runtime-main.566d2108.js",
     "static/css/4.806c147b.chunk.css",
     "static/js/4.3edf7fd4.chunk.js",
-    "static/js/main.5baea383.chunk.js"
+    "static/js/main.b4a2d3d9.chunk.js"
   ]
 }
