@@ -359,6 +359,7 @@ export default function Swap() {
               onMax={handleMaxInput}
               onCurrencySelect={handleInputSelect}
               otherCurrency={currencies[Field.OUTPUT]}
+              disableCurrencySelect={true}
               id="swap-currency-input"
             />
             <AutoColumn justify="space-between">
